@@ -3,8 +3,19 @@ spring:
     name: admin-service
   security:
     user:
-      name: "user"
-      password: "password"
+      name: admin
+      password: admin
+  boot:
+    admin:
+      client:
+        instance:
+          metadata:
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.password}
+        url: http://localhost:${server.port}
+        username: ${spring.security.user.name}
+        password: ${spring.security.user.password}
 management:
   endpoints:
     web:
@@ -22,3 +33,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://discUser:discPassword@192.168.1.5:8761/eureka
+
+#  spring.boot.admin.notify.slack.webhook-url=https://hooks.slack.com/services/<Channel_WebHook>
+#  spring.boot.admin.notify.slack.channel=test

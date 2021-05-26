@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2020.0.1</spring-cloud.version>
-		<spring-boot-admin-server.version>2.4.0</spring-boot-admin-server.version>
+		<spring-boot-admin-server.version>2.3.1</spring-boot-admin-server.version>
 		<spring-boot-admin-starter-client.version>2.4.0</spring-boot-admin-starter-client.version>
 		<spring-boot-admin-server-ui-login.version>1.5.7</spring-boot-admin-server-ui-login.version>
 	</properties>

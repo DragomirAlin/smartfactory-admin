@@ -13,9 +13,10 @@ spring:
             user:
               name: ${spring.security.user.name}
               password: ${spring.security.user.password}
-        url: http://localhost:${server.port}
+        url: http://192.168.1.5:${server.port}
         username: ${spring.security.user.name}
         password: ${spring.security.user.password}
+        auto-registration: false
 management:
   endpoints:
     web:

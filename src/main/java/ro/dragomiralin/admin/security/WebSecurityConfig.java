@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         successHandler.setDefaultTargetUrl(this.adminServer.getContextPath() + "/");
 
         http.authorizeRequests()
+                .antMatchers("/actuator/**").permitAll()
                 .antMatchers(this.adminServer.getContextPath() + "/assets/**")
                 .permitAll()
                 .antMatchers(this.adminServer.getContextPath() + "/login")
@@ -54,6 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe()
                 .key("testkey")
                 .userDetailsService(userDetailsService())
-                .tokenValiditySeconds(999999999);
+                .tokenValiditySeconds(999999999)
+        ;
     }
 }

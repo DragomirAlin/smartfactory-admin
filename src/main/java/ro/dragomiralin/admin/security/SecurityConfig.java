@@ -1,5 +1,6 @@
 package ro.dragomiralin.admin.security;
 
+import feign.RequestInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +9,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.oauth2.client.CommonOAuth2Provider;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.InMemoryOAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.endpoint.DefaultAuthorizationCodeTokenResponseClient;
@@ -19,6 +21,7 @@ import org.springframework.security.oauth2.client.registration.InMemoryClientReg
 import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
 import org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository;
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
+import org.springframework.security.oauth2.jwt.Jwt;
 
 import java.util.Arrays;
 import java.util.List;
@@ -102,7 +105,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .clientSecret(clientSecret)
                 .build();
         }
+
+
         return null;
+    }
+
+    @Bean
+    public RequestInterceptor authRequestInterceptor() {
+        return requestTemplate -> {
+            var jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            requestTemplate.header("Authorization", String.format("Bearer %s", jwt.getTokenValue()));
+        };
     }
 
 }

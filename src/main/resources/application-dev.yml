@@ -5,13 +5,23 @@ spring:
     oauth2:
       client:
         registration:
-          google:
-            client-id:
-            client-secret:
-  #      resourceserver:
-#        jwt:
-#          issuerUri: http://localhost:8083/auth/realms/baeldung
-#          jwkSetUri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/certs
+          keycloak:
+            client-id: jwtClient
+            client-secret: jwtClientSecret
+            clientName: baeldung
+            authorization-grant-type: authorization_code
+            redirectUri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/auth
+            token-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/token
+            user-info-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/certs
+            user-name-attribute: preferred_username
   boot:
     admin:
       client:

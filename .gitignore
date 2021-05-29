@@ -13,6 +13,8 @@
 .idea/**/dictionaries
 .idea/**/shelf
 src/main/resources/application-prod.yml
+/src/main/resources/application-prod.yml
+
 # Generated files
 .idea/**/contentModel.xml
 

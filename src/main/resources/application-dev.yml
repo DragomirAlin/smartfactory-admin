@@ -25,7 +25,6 @@ spring:
   boot:
     admin:
       client:
-        url: http://192.168.1.5:${server.port}
         auto-registration: false
 management:
   endpoints:

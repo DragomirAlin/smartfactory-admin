@@ -8,7 +8,7 @@ spring:
           keycloak:
             client-id: jwtClient
             client-secret: jwtClientSecret
-            clientName: baeldung
+            clientName: smartfactory
             authorization-grant-type: authorization_code
             redirectUri: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope:
@@ -17,10 +17,10 @@ spring:
               - email
         provider:
           keycloak:
-            authorization-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/auth
-            token-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/token
-            user-info-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/userinfo
-            jwk-set-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/certs
+            authorization-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/auth
+            token-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/token
+            user-info-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/certs
             user-name-attribute: preferred_username
   boot:
     admin:

@@ -17,10 +17,10 @@ spring:
               - email
         provider:
           keycloak:
-            authorization-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/auth
-            token-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/token
-            user-info-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/userinfo
-            jwk-set-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/certs
+            authorization-uri: http://smartfactory:8083/auth/realms/smartfactory/protocol/openid-connect/auth
+            token-uri: http://smartfactory:8083/auth/realms/smartfactory/protocol/openid-connect/token
+            user-info-uri: http://smartfactory:8083/auth/realms/smartfactory/protocol/openid-connect/userinfo
+            jwk-set-uri: http://smartfactory:8083/auth/realms/smartfactory/protocol/openid-connect/certs
             user-name-attribute: preferred_username
   boot:
     admin:
@@ -42,7 +42,7 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://discUser:discPassword@192.168.1.5:8761/eureka
+      defaultZone: http://discUser:discPassword@smartfactory:8761/eureka
 
 #  spring.boot.admin.notify.slack.webhook-url=https://hooks.slack.com/services/<Channel_WebHook>
 #  spring.boot.admin.notify.slack.channel=test

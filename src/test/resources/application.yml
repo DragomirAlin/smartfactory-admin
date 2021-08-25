@@ -2,20 +2,30 @@ spring:
   application:
     name: admin-service
   security:
-    user:
-      name: admin
-      password: admin
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: jwtClient
+            client-secret: jwtClientSecret
+            clientName: smartfactory
+            authorization-grant-type: authorization_code
+            redirectUri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/auth
+            token-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/token
+            user-info-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:8083/auth/realms/smartfactory/protocol/openid-connect/certs
+            user-name-attribute: preferred_username
   boot:
     admin:
       client:
-        instance:
-          metadata:
-            user:
-              name: ${spring.security.user.name}
-              password: ${spring.security.user.password}
-        url: http://localhost:${server.port}
-        username: ${spring.security.user.name}
-        password: ${spring.security.user.password}
+        auto-registration: false
 management:
   endpoints:
     web:
@@ -32,7 +42,7 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://discUser:discPassword@192.168.1.5:8761/eureka
+      defaultZone: http://discUser:discPassword@192.168.1.32:8761/eureka
 
 #  spring.boot.admin.notify.slack.webhook-url=https://hooks.slack.com/services/<Channel_WebHook>
 #  spring.boot.admin.notify.slack.channel=test

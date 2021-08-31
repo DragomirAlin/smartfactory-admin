@@ -17,10 +17,10 @@ spring:
               - email
         provider:
           keycloak:
-            authorization-uri: http://keycloak:8083/auth/realms/smartfactory/protocol/openid-connect/auth
-            token-uri: http://keycloak:8083/auth/realms/smartfactory/protocol/openid-connect/token
-            user-info-uri: http://keycloak:8083/auth/realms/smartfactory/protocol/openid-connect/userinfo
-            jwk-set-uri: http://keycloak:8083/auth/realms/smartfactory/protocol/openid-connect/certs
+            authorization-uri: http://smartfactory:8083/auth/realms/smartfactory/protocol/openid-connect/auth
+            token-uri: http://smartfactory:8083/auth/realms/smartfactory/protocol/openid-connect/token
+            user-info-uri: http://smartfactory:8083/auth/realms/smartfactory/protocol/openid-connect/userinfo
+            jwk-set-uri: http://smartfactory:8083/auth/realms/smartfactory/protocol/openid-connect/certs
             user-name-attribute: preferred_username
   boot:
     admin:

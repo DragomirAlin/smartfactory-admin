@@ -21,7 +21,7 @@ spring:
           token-uri: ${KEYCLOAK_URL}/auth/realms/smartfactory/protocol/openid-connect/token
           user-info-uri: ${KEYCLOAK_URL}/auth/realms/smartfactory/protocol/openid-connect/userinfo
           jwk-set-uri: ${KEYCLOAK_URL}/auth/realms/smartfactory/protocol/openid-connect/certs
-            user-name-attribute: preferred_username
+          user-name-attribute: preferred_username
   boot:
     admin:
       client:

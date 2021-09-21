@@ -42,7 +42,7 @@ eureka:
     prefer-ip-address: false
   client:
     serviceUrl:
-      defaultZone: http://discUser:discPassword@discovery:8761/eureka
+      defaultZone: http://discUser:discPassword@discovery/eureka
 
 #  spring.boot.admin.notify.slack.webhook-url=https://hooks.slack.com/services/<Channel_WebHook>
 #  spring.boot.admin.notify.slack.channel=test

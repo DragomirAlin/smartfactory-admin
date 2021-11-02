@@ -29,7 +29,7 @@ spring:
       notify:
         slack:
           enabled: true
-          webhook-url: ${{SLACK_HOOKS}}
+          webhook-url: ${SLACK_HOOKS}
           channel: smartfactory
 management:
   endpoints:

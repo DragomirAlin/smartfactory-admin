@@ -26,6 +26,11 @@ spring:
     admin:
       client:
         auto-registration: false
+      notify:
+        slack:
+          enabled: true
+          webhook-url: ${{SLACK_HOOKS}}
+          channel: smartfactory
 management:
   endpoints:
     web:
@@ -43,6 +48,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://discUser:discPassword@discovery:8761/eureka
-
-#  spring.boot.admin.notify.slack.webhook-url=https://hooks.slack.com/services/<Channel_WebHook>
-#  spring.boot.admin.notify.slack.channel=test

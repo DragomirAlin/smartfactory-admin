@@ -26,6 +26,11 @@ spring:
     admin:
       client:
         auto-registration: false
+      notify:
+        slack:
+          enabled: true
+          webhook-url: ${{SLACK_HOOKS}}
+          channel: smartfactory
 management:
   endpoints:
     web:

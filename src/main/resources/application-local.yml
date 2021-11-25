@@ -41,10 +41,3 @@ management:
       show-details: always
 server:
   port: 8100
-
-eureka:
-  instance:
-    prefer-ip-address: false
-  client:
-    serviceUrl:
-      defaultZone: http://discUser:discPassword@192.168.1.5:8761/eureka

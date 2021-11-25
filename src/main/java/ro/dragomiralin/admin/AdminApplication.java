@@ -4,7 +4,9 @@ import de.codecentric.boot.admin.server.config.AdminServerHazelcastAutoConfigura
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+@EnableDiscoveryClient
 @EnableAdminServer
 @SpringBootApplication(exclude = AdminServerHazelcastAutoConfiguration.class)
 public class AdminApplication {
